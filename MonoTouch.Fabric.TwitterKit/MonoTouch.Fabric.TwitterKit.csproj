@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{8FFB629D-F513-41CE-95D2-7ECE97B6EEEC};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{4367F8C0-5C23-4D46-A1A9-0FEA78B09077}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>MonoTouch.Fabric.TwitterKit</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>MonoTouch.Fabric.TwitterKit</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="libTwitterKit.linkwith.cs">
+      <DependentUpon>libTwitterKit.a</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingNativeLibrary Include="libTwitterKit.a" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\TwitterKitResources.bundle\ar.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\bn.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\cs.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\da.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\de.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\emailshare.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\emailshare%402x.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\emailshare%403x.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\en.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\en-gb.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\es.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\fa.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\fi.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\fr.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\he.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\hi.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\hu.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\id.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\it.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\ja.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\ko.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\ms.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\nb.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\nl.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\pl.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\pt.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\ro.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\ru.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\sv.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\TFSScribe.momd\TFSScribe.mom" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\TFSScribe.momd\VersionInfo.plist" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\th.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\tl.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\tr.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\twtr-favorite-off.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\twtr-favorite-off%402x.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\twtr-favorite-off%403x.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\twtr-favorite-on.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\twtr-favorite-on%402x.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\twtr-favorite-on%403x.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\twtr-icn-logo.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\twtr-icn-logo%402x.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\twtr-icn-logo%403x.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\twtr-icn-logo-white.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\twtr-icn-logo-white%402x.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\twtr-icn-logo-white%403x.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\twtr-icn-tweet-retweeted-by-dark.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\twtr-icn-tweet-retweeted-by-dark%402x.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\twtr-icn-tweet-retweeted-by-dark%403x.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\twtr-icn-tweet-retweeted-by-light.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\twtr-icn-tweet-retweeted-by-light%402x.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\twtr-icn-tweet-retweeted-by-light%403x.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\twtr-icn-tweet-verified.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\twtr-icn-tweet-verified%402x.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\twtr-icn-tweet-verified%403x.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\twtr-share.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\twtr-share%402x.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\twtr-share%403x.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\twttr-icn-tweet-place-holder-photo.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\twttr-icn-tweet-place-holder-photo%402x.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\twttr-icn-tweet-place-holder-photo%403x.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\twttr-icn-tweet-place-holder-photo-error.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\twttr-icn-tweet-place-holder-photo-error%402x.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\twttr-icn-tweet-place-holder-photo-error%403x.png" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\uk.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\ur.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\vi.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\zh-Hans.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\TwitterKitResources.bundle\zh-Hant.lproj\Localizable.strings" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MonoTouch.Fabric\MonoTouch.Fabric.csproj">
+      <Project>{F2FB7104-B907-4292-8120-D821B2390A33}</Project>
+      <Name>MonoTouch.Fabric</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MonoTouch.Fabric.TwitterCore\MonoTouch.Fabric.TwitterCore.csproj">
+      <Project>{A6455BEE-0D57-4C78-8065-FF46B32DE7B9}</Project>
+      <Name>MonoTouch.Fabric.TwitterCore</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
