@@ -54,6 +54,9 @@ Now, we'll have to add a post-build script to upload your dSYMs automatically.  
 
 By default, filenames and line numbers are not available for release build crash reports.  If app size is not an issue for you, you can package .mdb files with your app by adding "--package-mdb" to the additional mtouch arguments in the project's iOS Build options.  Refer to this [bugzilla bug report](https://bugzilla.xamarin.com/show_bug.cgi?id=3357) for more information.
 
+### Beta distribution
+Use the Fabric Mac app to upload your archives.
+
 ## DigitsKit
 
 ## MoPub
