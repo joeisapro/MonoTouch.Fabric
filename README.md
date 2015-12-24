@@ -58,12 +58,12 @@ By default, filenames and line numbers are not available for release build crash
 Use the Fabric Mac app to upload your archives.
 
 ## DigitsKit
-Create an empty Xcode project with the same bundle identifier as the one for your Xamarin app.  Then, use the Fabric Mac app to add your app and complete the Digits on-boarding process. This will generate a consumer key and a consumer key secret which you will need to provide during initialization.
+Create an empty Xcode project.  Then, use the Fabric Mac app to add your app and complete the Digits on-boarding process. This will generate a consumer key and a consumer key secret which you will need to provide during initialization.
 
 Your Xamarin project will have to reference
 * MonoTouch.Fabric
 * MonoTouch.Fabric.DigitsKit
-* MonoTouch.Fabirc.TwitterCore
+* MonoTouch.Fabric.TwitterCore
 
 Before initializing DigitsKit, you will have to make changes to Info.plist.  Add a Dictionary key named 'Fabric'.  Add a String sub-key named 'APIKey' and copy your api key to it.  <b>Failure to do so will result in your app crashing.</b>
 
@@ -89,3 +89,26 @@ Refer to [Fabric documentation](https://docs.fabric.io/ios/digits/index.html) an
 Completely untested.  Use at your own risk.
 
 ## TwitterKit
+Create an empty Xcode project.  Then, use the Fabric Mac app to add your app and complete the Twitter on-boarding process. This will generate a consumer key and a consumer key secret which you will need to provide during initialization.
+
+Your Xamarin project will have to reference
+* MonoTouch.Fabric
+* MonoTouch.Fabric.TwitterCore
+* MonoTouch.Fabric.TwitterKit
+
+In AppDelegate.cs, add Twitter initialization code to FinishedLaunching():
+```c#
+        public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
+        {
+            // Override point for customization after application launch.
+            // If not required for your application you can safely delete this method
+
+            var twitterKit = MonoTouch.Fabric.TwitterKit.Twitter.SharedInstance;
+            twitterKit.StartWithConsumerKey("replace_with_your_consumer_key", 
+                "replace_with_your_consumer_secret");
+
+            Fabric.With(new NSObject[]{ twitterKit });
+
+            return true;
+        }
+```
