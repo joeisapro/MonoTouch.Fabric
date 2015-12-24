@@ -57,6 +57,8 @@ By default, filenames and line numbers are not available for release build crash
 ### Beta distribution
 Use the Fabric Mac app to upload your archives.
 
+Refer to [Crashlytics documentation](https://docs.fabric.io/ios/crashlytics/index.html) and the Crashlytics sample app for more information on how to use this kit.
+
 ## DigitsKit
 Create an empty Xcode project.  Then, use the Fabric Mac app to add your app and complete the Digits on-boarding process. This will generate a consumer key and a consumer key secret which you will need to provide during initialization.
 
@@ -83,10 +85,11 @@ In AppDelegate.cs, add Digits initialization code to FinishedLaunching():
             return true;
         }
 ```
-Refer to [Fabric documentation](https://docs.fabric.io/ios/digits/index.html) and the DigitsKit sample app for more information on how to use this kit.
+Refer to [Digits documentation](https://docs.fabric.io/ios/digits/index.html) and the DigitsKit sample app for more information on how to use this kit.
 
 ## MoPub
 Completely untested.  Use at your own risk.
+Refer to [MoPub documentation](https://dev.twitter.com/mopub/ios) for more information on how to use this kit.
 
 ## TwitterKit
 Create an empty Xcode project.  Then, use the Fabric Mac app to add your app and complete the Twitter on-boarding process. This will generate a consumer key and a consumer key secret which you will need to provide during initialization.
@@ -112,3 +115,4 @@ In AppDelegate.cs, add Twitter initialization code to FinishedLaunching():
             return true;
         }
 ```
+Refer to [Twitter documentation](https://docs.fabric.io/ios/twitter/index.html) and the TwitterKit sample app for more information on how to use this kit.
