@@ -9,13 +9,13 @@ This is a Xamarin.iOS Unified binding project for Fabric 1.2.8, with support for
 Other kits might be added in the future.
 
 ## Crashlytics
-Before you can start receiving crash reports, distributing beta builds or collecting analytics from your app, you will have to create an empty Xcode project with the same bundle identifier as the one for your Xamarin app.  Then, use the Fabric Mac app to add your app and complete the on-boarding process. 
+Before you can start receiving crash reports, distributing beta builds or collecting analytics from your app, you will have to create an empty Xcode project with the same bundle identifier as the one for your Xamarin app.  Then, use the Fabric Mac app to add your app and complete the Crashlytics on-boarding process. 
 
 Your Xamarin project will have to reference
 * MonoTouch.Fabric
 * MonoTouch.Fabric.Crashlytics
 
-In AppDelegate.cs, add Crashlytics initialization code and make sure it precedes any other startup code:
+In AppDelegate.cs, add Crashlytics initialization code to FinishedLaunching() and make sure it precedes any other startup code:
 
 ```c#
 		public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
@@ -58,9 +58,34 @@ By default, filenames and line numbers are not available for release build crash
 Use the Fabric Mac app to upload your archives.
 
 ## DigitsKit
+Create an empty Xcode project with the same bundle identifier as the one for your Xamarin app.  Then, use the Fabric Mac app to add your app and complete the Digits on-boarding process. This will generate a consumer key and a consumer key secret which you will need to provide during initialization.
+
+Your Xamarin project will have to reference
+* MonoTouch.Fabric
+* MonoTouch.Fabric.DigitsKit
+* MonoTouch.Fabirc.TwitterCore
+
+Before initializing DigitsKit, you will have to make changes to Info.plist.  Add a Dictionary key named 'Fabric'.  Add a String sub-key named 'APIKey' and copy your api key to it.  <b>Failure to do so will result in your app crashing.</b>
+
+In AppDelegate.cs, add Digits initialization code to FinishedLaunching():
+```c#
+        public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
+        {
+            // Override point for customization after application launch.
+            // If not required for your application you can safely delete this method
+
+            var digitsKit = Digits.SharedInstance;
+            digitsKit.StartWithConsumerKey("replace_with_your_consumer_key", 
+            	"replace_with_your_consumer_secret");
+
+            Fabric.With(new NSObject[]{ digitsKit });
+
+            return true;
+        }
+```
+Refer to [Fabric documentation](https://docs.fabric.io/ios/digits/index.html) and the DigitsKit sample app for more information on how to use this kit.
 
 ## MoPub
+Completely untested.  Use at your own risk.
 
 ## TwitterKit
-
-<b>Documentation, sample code and demos will be available shortly.</b>
