@@ -43,16 +43,16 @@ namespace MonoTouch.Fabric.DigitsKit
     }
 
     // typedef void (^TWTRGuestLogInCompletion)(TWTRGuestSession *NSError *);
-    delegate void TWTRGuestLogInCompletion (TWTRGuestSession arg0, NSError arg1);
+    delegate void TWTRGuestLogInCompletion ([NullAllowed]TWTRGuestSession arg0, [NullAllowed]NSError arg1);
 
     // typedef void (^DGTUploadContactsCompletion)(DGTContactsUploadResult *NSError *);
-    delegate void DGTUploadContactsCompletion (DGTContactsUploadResult arg0, NSError arg1);
+    delegate void DGTUploadContactsCompletion ([NullAllowed]DGTContactsUploadResult arg0, [NullAllowed]NSError arg1);
 
     // typedef void (^DGTLookupContactsCompletion)(NSArray *NSString *NSError *);
-    delegate void DGTLookupContactsCompletion (NSObject[] arg0, string arg1, NSError arg2);
+    delegate void DGTLookupContactsCompletion ([NullAllowed]NSObject[] arg0, [NullAllowed]string arg1, [NullAllowed]NSError arg2);
 
     // typedef void (^DGTDeleteAllUploadedContactsCompletion)(NSError *);
-    delegate void DGTDeleteAllUploadedContactsCompletion (NSError arg0);
+    delegate void DGTDeleteAllUploadedContactsCompletion ([NullAllowed]NSError arg0);
 
     // @interface DGTContacts : NSObject
     [BaseType (typeof(NSObject))]
@@ -218,7 +218,7 @@ namespace MonoTouch.Fabric.DigitsKit
     }
 
     // typedef void (^DGTAuthenticationCompletion)(DGTSession *NSError *);
-    delegate void DGTAuthenticationCompletion (DGTSession arg0, NSError arg1);
+    delegate void DGTAuthenticationCompletion ([NullAllowed]DGTSession arg0, [NullAllowed]NSError arg1);
 
     // @interface DGTAuthenticateButton : UIButton
     [BaseType (typeof(UIButton))]

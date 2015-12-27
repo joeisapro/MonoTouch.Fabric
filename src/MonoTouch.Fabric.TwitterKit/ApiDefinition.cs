@@ -23,7 +23,7 @@ namespace MonoTouch.Fabric.TwitterKit
         NSString TWTRErrorDomain { get; }
     }
 
-    //[Verify (ConstantsInterfaceAssociation)]
+    //Verify (ConstantsInterfaceAssociation)]
     partial interface Constants
     {
         // extern NSString *const TWTRLogInErrorDomain;
@@ -44,7 +44,7 @@ namespace MonoTouch.Fabric.TwitterKit
     }
 
     // typedef void (^TWTRGuestLogInCompletion)(TWTRGuestSession *NSError *);
-    delegate void TWTRGuestLogInCompletion (TWTRGuestSession arg0, NSError arg1);
+    delegate void TWTRGuestLogInCompletion ([NullAllowed]TWTRGuestSession arg0, [NullAllowed]NSError arg1);
 
     //[Verify (ConstantsInterfaceAssociation)]
     partial interface Constants
@@ -55,22 +55,22 @@ namespace MonoTouch.Fabric.TwitterKit
     }
 
     // typedef void (^TWTRLoadUserCompletion)(TWTRUser *NSError *);
-    delegate void TWTRLoadUserCompletion (TWTRUser arg0, NSError arg1);
+    delegate void TWTRLoadUserCompletion ([NullAllowed]TWTRUser arg0, [NullAllowed]NSError arg1);
 
     // typedef void (^TWTRLoadTweetCompletion)(TWTRTweet *NSError *);
-    delegate void TWTRLoadTweetCompletion (TWTRTweet arg0, NSError arg1);
+    delegate void TWTRLoadTweetCompletion ([NullAllowed]TWTRTweet arg0, [NullAllowed]NSError arg1);
 
     // typedef void (^TWTRLoadTweetsCompletion)(NSArray *NSError *);
-    delegate void TWTRLoadTweetsCompletion (NSObject[] arg0, NSError arg1);
+    delegate void TWTRLoadTweetsCompletion ([NullAllowed]NSObject[] arg0, [NullAllowed]NSError arg1);
 
     // typedef void (^TWTRNetworkCompletion)(NSURLResponse *NSData *NSError *);
-    delegate void TWTRNetworkCompletion (NSUrlResponse arg0, NSData arg1, NSError arg2);
+    delegate void TWTRNetworkCompletion ([NullAllowed]NSUrlResponse arg0, [NullAllowed]NSData arg1, [NullAllowed]NSError arg2);
 
     // typedef void (^TWTRJSONRequestCompletion)(NSURLResponse *idNSError *);
-    delegate void TWTRJSONRequestCompletion (NSUrlResponse arg0, NSObject arg1, NSError arg2);
+    delegate void TWTRJSONRequestCompletion ([NullAllowed]NSUrlResponse arg0,[NullAllowed] NSObject arg1,[NullAllowed] NSError arg2);
 
     // typedef void (^TWTRTweetActionCompletion)(TWTRTweet *NSError *);
-    delegate void TWTRTweetActionCompletion (TWTRTweet arg0, NSError arg1);
+    delegate void TWTRTweetActionCompletion ([NullAllowed]TWTRTweet arg0, [NullAllowed]NSError arg1);
 
     // @interface TWTRAPIClient : NSObject
     [BaseType (typeof(NSObject))]
@@ -128,7 +128,7 @@ namespace MonoTouch.Fabric.TwitterKit
     }
 
     // typedef void (^TWTRLogInCompletion)(TWTRSession *NSError *);
-    delegate void TWTRLogInCompletion (TWTRSession arg0, NSError arg1);
+    delegate void TWTRLogInCompletion ([NullAllowed]TWTRSession arg0, [NullAllowed]NSError arg1);
 
     // @interface Twitter : NSObject
     [BaseType (typeof(NSObject))]
@@ -200,7 +200,7 @@ namespace MonoTouch.Fabric.TwitterKit
     }
 
     // typedef void (^TWTRLoadTimelineCompletion)(NSArray *TWTRTimelineCursor *NSError *);
-    delegate void TWTRLoadTimelineCompletion (NSObject[] arg0, NSObject arg1, NSError arg2);
+    delegate void TWTRLoadTimelineCompletion ([NullAllowed]NSObject[] arg0, [NullAllowed]NSObject arg1, [NullAllowed]NSError arg2);
 
     // @protocol TWTRTimelineDataSource <NSObject>
     [Protocol, Model]
@@ -235,7 +235,7 @@ namespace MonoTouch.Fabric.TwitterKit
     }
 
     // typedef void (^TWTRComposerCompletion)(TWTRComposerResult);
-    delegate void TWTRComposerCompletion (TWTRComposerResult arg0);
+    delegate void TWTRComposerCompletion ([NullAllowed]TWTRComposerResult arg0);
 
     // @interface TWTRComposer : NSObject
     [BaseType (typeof(NSObject))]
@@ -354,7 +354,7 @@ namespace MonoTouch.Fabric.TwitterKit
     }
 
     // typedef void (^TWTRShareEmailCompletion)(NSString *NSError *);
-    delegate void TWTRShareEmailCompletion (string arg0, NSError arg1);
+    delegate void TWTRShareEmailCompletion ([NullAllowed]string arg0, [NullAllowed]NSError arg1);
 
     // @interface TWTRShareEmailViewController : UINavigationController
     [BaseType (typeof(UINavigationController))]
