@@ -99,6 +99,8 @@ Your Xamarin project will have to reference
 * MonoTouch.Fabric.TwitterCore
 * MonoTouch.Fabric.TwitterKit
 
+Before initializing TwitterKit, you will have to make changes to Info.plist.  Add a Dictionary key named 'Fabric'.  Add a String sub-key named 'APIKey' and copy your api key to it.  <b>Failure to do so will result in your app crashing.</b>
+
 In AppDelegate.cs, add Twitter initialization code to FinishedLaunching():
 ```c#
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
