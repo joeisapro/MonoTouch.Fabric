@@ -208,7 +208,7 @@ namespace MonoTouch.Fabric.TwitterKit
     interface TWTRTimelineDataSource
     {
         // @required -(void)loadPreviousTweetsBeforePosition:(NSString *)position completion:(TWTRLoadTimelineCompletion)completion;
-        [Abstract]
+        //[Abstract]
         [Export ("loadPreviousTweetsBeforePosition:completion:")]
         void Completion (string position, TWTRLoadTimelineCompletion completion);
 
@@ -218,7 +218,7 @@ namespace MonoTouch.Fabric.TwitterKit
     }
 
     // @interface TWTRCollectionTimelineDataSource : NSObject <TWTRTimelineDataSource>
-    [BaseType (typeof(NSObject))]
+    [BaseType (typeof(TWTRTimelineDataSource))]
     interface TWTRCollectionTimelineDataSource : TWTRTimelineDataSource
     {
         // @property (readonly, assign, nonatomic) NSInteger maxTweetsPerRequest;
@@ -269,7 +269,7 @@ namespace MonoTouch.Fabric.TwitterKit
     }
 
     // @interface TWTRListTimelineDataSource : NSObject <TWTRTimelineDataSource>
-    [BaseType (typeof(NSObject))]
+    [BaseType (typeof(TWTRTimelineDataSource))]
     interface TWTRListTimelineDataSource : TWTRTimelineDataSource
     {
         // @property (readonly, copy, nonatomic) NSString * listID;
@@ -329,7 +329,7 @@ namespace MonoTouch.Fabric.TwitterKit
     }
 
     // @interface TWTRSearchTimelineDataSource : NSObject <TWTRTimelineDataSource>
-    [BaseType (typeof(NSObject))]
+    [BaseType (typeof(TWTRTimelineDataSource))]
     interface TWTRSearchTimelineDataSource : TWTRTimelineDataSource
     {
         // @property (readonly, copy, nonatomic) NSString * searchQuery;
@@ -647,7 +647,7 @@ namespace MonoTouch.Fabric.TwitterKit
     }
 
     // @interface TWTRUserTimelineDataSource : NSObject <TWTRTimelineDataSource>
-    [BaseType (typeof(NSObject))]
+    [BaseType (typeof(TWTRTimelineDataSource))]
     interface TWTRUserTimelineDataSource : TWTRTimelineDataSource
     {
         // @property (readonly, copy, nonatomic) NSString * screenName;
