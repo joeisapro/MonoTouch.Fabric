@@ -113,5 +113,9 @@
       <Project>{A6455BEE-0D57-4C78-8065-FF46B32DE7B9}</Project>
       <Name>MonoTouch.Fabric.TwitterCore</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MonoTouch.Fabric\MonoTouch.Fabric.csproj">
+      <Project>{F2FB7104-B907-4292-8120-D821B2390A33}</Project>
+      <Name>MonoTouch.Fabric</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

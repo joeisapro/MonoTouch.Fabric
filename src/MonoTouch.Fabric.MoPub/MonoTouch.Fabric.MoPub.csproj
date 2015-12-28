@@ -62,4 +62,10 @@
     <BundleResource Include="Resources\MoPub.bundle\MPCloseButtonX%403x.png" />
     <BundleResource Include="Resources\MoPub.bundle\MRAID.bundle\mraid.js" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MonoTouch.Fabric\MonoTouch.Fabric.csproj">
+      <Project>{F2FB7104-B907-4292-8120-D821B2390A33}</Project>
+      <Name>MonoTouch.Fabric</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
