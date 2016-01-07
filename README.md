@@ -8,6 +8,11 @@ This is a Xamarin.iOS Unified binding project for Fabric 1.2.8, with support for
 
 Other kits might be added in the future.
 
+**Coming soon!**
+* Custom on-boarding app for all your favorite kits - no need to use Xcode and the Fabric Mac app anymore.
+* CrashlyticsDemo sample app
+* Updated bindings for latest version of kits
+
 ## Crashlytics
 Before you can start receiving crash reports, distributing beta builds or collecting analytics from your app, you will have to create an empty Xcode project with the same bundle identifier as the one for your Xamarin app.  Then, use the Fabric Mac app to add your app and complete the Crashlytics on-boarding process. 
 
