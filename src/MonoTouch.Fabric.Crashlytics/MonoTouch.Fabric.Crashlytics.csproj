@@ -42,6 +42,7 @@
     <Compile Include="libCrashlytics.linkwith.cs">
       <DependentUpon>libCrashlytics.a</DependentUpon>
     </Compile>
+    <Compile Include="DefaultCrashlyticsManager.cs" />
     <Compile Include="Setup.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />

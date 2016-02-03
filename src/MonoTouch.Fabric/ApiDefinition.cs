@@ -9,9 +9,10 @@ namespace MonoTouch.Fabric
 	{
 		// +(instancetype)with:(NSArray *)kits;
 		[Static]
+        [Internal]
 		[Export ("with:")]
 		//[Verify (StronglyTypedNSArray)]
-		Fabric With (NSObject[] kits);
+		Fabric WithInternal (NSObject[] kits);
 
 		// +(instancetype)sharedSDK;
 		[Static]
@@ -19,7 +20,7 @@ namespace MonoTouch.Fabric
 		Fabric SharedSDK ();
 
 		// @property (assign, nonatomic) BOOL debug;
-		[Export ("debug")]
+        [Export ("debug")]
 		bool Debug { get; set; }
 
 		// -(id)kitForClass:(Class)klass;
