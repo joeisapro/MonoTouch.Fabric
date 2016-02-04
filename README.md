@@ -9,8 +9,12 @@ This is a Xamarin.iOS Unified binding project for Fabric 1.2.8, with support for
 Other kits might be added in the future.
 
 **Coming soon!**
-* Custom on-boarding app for all your favorite kits - no need to use Xcode and the Fabric Mac app anymore.
+
+![alt text](http://s7.postimg.org/n7883ihvf/fabric_3.png "MonoDevelop.Fabric Addin")
+
+* Xamarin Studio Addin for automated onboarding/configuration
 * CrashlyticsDemo sample app
+* Updated documentation
 * Updated bindings for latest version of kits
 
 ## Crashlytics
