@@ -44,6 +44,7 @@
     </Compile>
     <Compile Include="DefaultCrashlyticsManager.cs" />
     <Compile Include="Setup.cs" />
+    <Compile Include="Crashlytics.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
   <ItemGroup>
@@ -51,9 +52,6 @@
   </ItemGroup>
   <ItemGroup>
     <ObjcBindingNativeLibrary Include="libCrashlytics.a" />
-  </ItemGroup>
-  <ItemGroup>
-    <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MonoTouch.Fabric\MonoTouch.Fabric.csproj">

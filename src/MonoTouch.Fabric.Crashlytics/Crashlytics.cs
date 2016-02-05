@@ -6,7 +6,7 @@ using ObjCRuntime;
 namespace MonoTouch.Fabric.Crashlytics
 {
     
-    public static class CFunctions
+    public partial class Crashlytics
     {
         // extern void CLSLog (NSString * format, ...);
         [DllImport("__Internal", EntryPoint = "CLSLog")]
@@ -38,18 +38,18 @@ namespace MonoTouch.Fabric.Crashlytics
         //[Verify (PlatformInvoke)]
 		internal static extern unsafe void CLSNSLogv(IntPtr format, sbyte* ap);
 
-        public static void CLSLog(string message)
+        public static void CLSLog(string format, params object[] arg)
         {
-            using (var nsFormat = new NSString(message))
+            using (var nsFormat = new NSString(string.Format(format, arg)))
                 if (Runtime.Arch == Arch.DEVICE && IntPtr.Size == 8)
                     __CLSLog_arm64(nsFormat.Handle, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, "");
                 else
                     __CLSLog(nsFormat.Handle, "");
         }
 
-        public static void CLSNSLog(string message)
+        public static void CLSNSLog(string format, params object[] arg)
         {
-            using (var nsFormat = new NSString(message))
+            using (var nsFormat = new NSString(string.Format(format, arg)))
                 if (Runtime.Arch == Arch.DEVICE && IntPtr.Size == 8)
                     __CLSNSLog_arm64(nsFormat.Handle, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, "");
                 else
