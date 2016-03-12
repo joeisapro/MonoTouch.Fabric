@@ -19,16 +19,20 @@ namespace MonoTouch.Fabric.Crashlytics
         {
             CatchUnhandledExceptions = true;
             CatchUnobservedTaskExceptions = true;
+            RethrowException = false;
         }
 
         public override void OnExceptionCaught(Exception ex)
         {
             CaptureManagedInfo(ex);
             CaptureStackFrames(ex);
-            RaiseNativeException(ex);
+
+            if (RethrowException)
+                RaiseNativeException(ex);
         }
 
         public override NSObject SharedInstance { get { return Crashlytics.SharedInstance; } }
+        public bool RethrowException { get; set; }
 
         protected virtual void CaptureManagedInfo(Exception ex)
         {
