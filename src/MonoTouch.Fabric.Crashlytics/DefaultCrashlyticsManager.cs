@@ -40,7 +40,9 @@ namespace MonoTouch.Fabric.Crashlytics
         
             if (ex != null)
             {
-                Crashlytics.SharedInstance.SetObjectValue(new NSString(ex.StackTrace), "unhandled exception stack trace");
+				if (!string.IsNullOrWhiteSpace(ex.StackTrace))
+                	Crashlytics.SharedInstance.SetObjectValue(new NSString(ex.StackTrace), "unhandled exception stack trace");
+				
                 Crashlytics.SharedInstance.SetObjectValue(new NSString(ex.Message), "unhandled exception message");
                 Crashlytics.SharedInstance.SetObjectValue(new NSString(ex.GetType().FullName), "unhandled exception");
             }
