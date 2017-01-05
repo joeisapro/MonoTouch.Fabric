@@ -20,14 +20,23 @@ namespace MonoTouch.Fabric.Crashlytics
             CatchUnhandledExceptions = true;
             CatchUnobservedTaskExceptions = true;
             RethrowException = false;
+            StripWrapperExceptions = false;
         }
 
         public override void OnExceptionCaught(Exception ex)
         {
-            foreach (var underlyingException in GetUnderlyingExceptions(ex))
+            if (StripWrapperExceptions)
             {
-                CaptureManagedInfo(underlyingException);
-                CaptureStackFrames(underlyingException);
+                foreach (var underlyingException in GetUnderlyingExceptions(ex))
+                {
+                    CaptureManagedInfo(underlyingException);
+                    CaptureStackFrames(underlyingException);
+                }
+            }
+            else
+            {
+                CaptureManagedInfo(ex);
+                CaptureStackFrames(ex);
             }
 
             if (RethrowException)
@@ -36,6 +45,7 @@ namespace MonoTouch.Fabric.Crashlytics
 
         public override NSObject SharedInstance { get { return Crashlytics.SharedInstance; } }
         public bool RethrowException { get; set; }
+        public bool StripWrapperExceptions { get; set; }
 
         protected virtual void CaptureManagedInfo(Exception ex)
         {
