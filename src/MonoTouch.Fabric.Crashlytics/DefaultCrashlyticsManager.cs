@@ -24,8 +24,11 @@ namespace MonoTouch.Fabric.Crashlytics
 
         public override void OnExceptionCaught(Exception ex)
         {
-            CaptureManagedInfo(ex);
-            CaptureStackFrames(ex);
+            foreach (var underlyingException in GetUnderlyingExceptions(ex))
+            {
+                CaptureManagedInfo(underlyingException);
+                CaptureStackFrames(underlyingException);
+            }
 
             if (RethrowException)
                 RaiseNativeException(ex);
@@ -96,6 +99,40 @@ namespace MonoTouch.Fabric.Crashlytics
                 frameWalker(new StackTrace(ex, true));
         
                 Crashlytics.SharedInstance.RecordCustomExceptionName(ex.GetType().Name, ex.Message, frames.Cast<NSObject>().ToArray());
+            }
+        }
+
+        protected virtual IEnumerable<Exception> GetUnderlyingExceptions(Exception ex)
+        {
+            if (ex == null)
+                yield break;
+
+            var aggregateException = ex as AggregateException;
+            if (aggregateException != null)
+            {
+                if (aggregateException.InnerExceptions.Count > 0)
+                {
+                    foreach (var innerException in aggregateException.Flatten().InnerExceptions)
+                        foreach (var underlyingException in GetUnderlyingExceptions(innerException))
+                            yield return underlyingException;
+                }
+                else
+                {
+                    yield return aggregateException;
+                }
+            }
+            else
+            {
+                var targetInvocationException = ex as TargetInvocationException;
+                if (targetInvocationException != null && targetInvocationException.InnerException != null)
+                {
+                    foreach (var underlyingException in GetUnderlyingExceptions(targetInvocationException.InnerException))
+                        yield return underlyingException;
+                }
+                else
+                {
+                    yield return ex;
+                }
             }
         }
 
