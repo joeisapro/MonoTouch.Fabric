@@ -127,39 +127,39 @@ namespace MonoTouch.Fabric.Crashlytics
 			}
 		}
 
-        public static IEnumerable<Exception> GetUnderlyingExceptions(Exception ex)
-        {
-            if (ex == null)
-                yield break;
+		public static IEnumerable<Exception> GetUnderlyingExceptions(Exception ex)
+		{
+			if (ex == null)
+				yield break;
 
-            var aggregateException = ex as AggregateException;
-            if (aggregateException != null)
-            {
-                if (aggregateException.InnerExceptions.Count > 0)
-                {
-                    foreach (var innerException in aggregateException.Flatten().InnerExceptions)
-                        foreach (var underlyingException in GetUnderlyingExceptions(innerException))
-                            yield return underlyingException;
-                }
-                else
-                {
-                    yield return aggregateException;
-                }
-            }
-            else
-            {
-                var targetInvocationException = ex as TargetInvocationException;
-                if (targetInvocationException != null && targetInvocationException.InnerException != null)
-                {
-                    foreach (var underlyingException in GetUnderlyingExceptions(targetInvocationException.InnerException))
-                        yield return underlyingException;
-                }
-                else
-                {
-                    yield return ex;
-                }
-            }
-        }
+			var aggregateException = ex as AggregateException;
+			if (aggregateException != null)
+			{
+				if (aggregateException.InnerExceptions.Count > 0)
+				{
+					foreach (var innerException in aggregateException.Flatten().InnerExceptions)
+						foreach (var underlyingException in GetUnderlyingExceptions(innerException))
+							yield return underlyingException;
+				}
+				else
+				{
+					yield return aggregateException;
+				}
+			}
+			else
+			{
+				var targetInvocationException = ex as TargetInvocationException;
+				if (targetInvocationException != null && targetInvocationException.InnerException != null)
+				{
+					foreach (var underlyingException in GetUnderlyingExceptions(targetInvocationException.InnerException))
+						yield return underlyingException;
+				}
+				else
+				{
+					yield return ex;
+				}
+			}
+		}
 
 		private static void ConvertToNativeExceptionAndRaise(object e)
 		{
